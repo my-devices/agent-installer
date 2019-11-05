@@ -13,7 +13,11 @@ function unsupportedPlatform {
 }
 
 echo ""
-echo "Welcome to the macchina.io Remote Manager Device Agent and Utilities Installer."
+echo "##"
+echo "##"
+echo "##  Welcome to the macchina.io Remote Manager Device Agent and Utilities Installer."
+echo "##"
+echo "##"
 echo ""
 echo "This script will download, build and install the"
 echo "macchina.io Remote Manager device agent (WebTunnelAgent) and utility"

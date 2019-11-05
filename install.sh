@@ -24,6 +24,7 @@ os=`uname`
 repo="https://github.com/my-devices/sdk.git"
 builddir=/tmp/my-devices-sdk-build.$$
 installdir=/usr/local/bin
+CMAKE=cmake
 
 if [ "$os" = "Darwin" ] ; then
 	cmakeOptions="-DOPENSSL_ROOT_DIR=/usr/local/opt/openssl -DOPENSSL_USE_STATIC_LIBS=TRUE"
@@ -37,9 +38,10 @@ fi
 
 if [ "$os" = "Linux" ] ; then
   if [ -x /usr/bin/apt-get ] ; then
-    cmd="apt-get install git g++ make cmake libssl-dev"
+    cmd="apt-get install -y git g++ make cmake libssl-dev"
   elif [ -x /bin/yum ] ; then
-    cmd="yum install git gcc-c++ make cmake openssl-devel"
+    cmd="yum install -y git gcc-c++ make cmake3 openssl-devel"
+    CMAKE=cmake3
   fi
   if [ "$cmd" != "" ] ; then
     echo "Installing dependencies (git, g++, make, cmake, openssl)."
@@ -99,12 +101,12 @@ if [ $? -ne 0 ] ; then
 	exit 4
 fi
 cd cmake-build
-cmake .. $cmakeOptions
+$CMAKE .. $cmakeOptions
 if [ $? -ne 0 ] ; then
 	echo "Failed to configure CMake build. Exiting."
 	exit 5
 fi
-cmake --build . --config Release
+$CMAKE --build . --config Release -- -j2
 if [ $? -ne 0 ] ; then
 	echo "Failed to build project. Exiting."
 	exit 5

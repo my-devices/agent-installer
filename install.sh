@@ -12,6 +12,7 @@ function unsupportedPlatform {
   exit 1
 }
 
+echo ""
 echo "Welcome to the macchina.io Remote Manager SDK installer."
 echo ""
 echo "This script will download, build and install the"
@@ -36,12 +37,12 @@ fi
 
 if [ "$os" = "Linux" ] ; then
   if [ -x /usr/bin/apt-get ] ; then
-    cmd="apt-get install git g++ cmake libssl-dev"
+    cmd="apt-get install git g++ make cmake libssl-dev"
   elif [ -x /bin/yum ] ; then
-    cmd="yum install git gcc-c++ cmake openssl-devel"
+    cmd="yum install git gcc-c++ make cmake openssl-devel"
   fi
   if [ "$cmd" != "" ] ; then
-    echo "Installing dependencies (git, g++, cmake, openssl)."
+    echo "Installing dependencies (git, g++, make, cmake, openssl)."
     echo "About to run $cmd"
     echo "Please provide your sudo password when prompted."
   else
@@ -111,7 +112,7 @@ fi
 
 echo "Copying executables to $installdir..."
 echo "Please provide your sudo password when prompted."
-find . -name 'WebTunnel*' -type f -perm 755 -exec sudo cp {} $installdir \;
+find ./bin -name 'WebTunnel*' -type f -perm -755 -exec sudo cp {} $installdir \;
 if [ $? -ne 0 ] ; then
 	echo "Failed to install agent executable. Exiting."
 	exit 6

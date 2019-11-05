@@ -115,7 +115,7 @@ fi
 
 echo "Copying executables to $installdir..."
 echo "Please provide your sudo password when prompted."
-find ./bin -name 'WebTunnel*' -type f -perm -755 -exec sudo cp {} $installdir \;
+find ./bin -name 'WebTunnel*' -type f -perm -755 -exec strip {} \; -exec sudo cp {} $installdir \;
 if [ $? -ne 0 ] ; then
 	echo "Failed to install agent executable. Exiting."
 	exit 6
@@ -126,4 +126,3 @@ echo "Executables successfully installed. Removing build directory $builddir..."
 rm -rf $builddir
 echo ""
 echo "Completed."
-

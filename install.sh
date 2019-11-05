@@ -13,10 +13,11 @@ function unsupportedPlatform {
 }
 
 echo ""
-echo "Welcome to the macchina.io Remote Manager SDK installer."
+echo "Welcome to the macchina.io Remote Manager Device Agent and Utilities Installer."
 echo ""
 echo "This script will download, build and install the"
-echo "macchina.io Remote Manager SDK executables from"
+echo "macchina.io Remote Manager device agent (WebTunnelAgent) and utility"
+echo "(WebTunnelClient, WebTunnelSSH, WebTunnelRDP, WebTunnelVNC) executables from"
 echo "<https://github.com/my-devices/sdk>."
 echo ""
 
@@ -38,7 +39,7 @@ fi
 
 if [ "$os" = "Linux" ] ; then
   if [ -x /usr/bin/apt-get ] ; then
-    cmd="sudo apt-get -y update && apt-get install -y git g++ make cmake libssl-dev"
+    cmd="sudo apt-get -y update && sudo apt-get install -y git g++ make cmake libssl-dev"
   elif [ -x /bin/yum ] ; then
     cmd="sudo yum install -y git gcc-c++ make cmake3 openssl-devel"
     CMAKE=cmake3
@@ -126,5 +127,7 @@ fi
 cd $basedir
 echo "Executables successfully installed. Removing build directory $builddir..."
 rm -rf $builddir
+
 echo ""
 echo "Completed."
+echo "Thank you for installing the macchina.io Remote Manager Device Agent and Utilities."

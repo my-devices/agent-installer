@@ -113,6 +113,8 @@ if [ $? -ne 0 ] ; then
 	exit 5
 fi
 
+echo "Build completed."
+echo ""
 echo "Copying executables to $installdir..."
 echo "Please provide your sudo password when prompted."
 find ./bin -name 'WebTunnel*' -type f -perm -755 -exec strip {} \; -exec sudo cp {} $installdir \;

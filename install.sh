@@ -1,7 +1,7 @@
 #! /bin/bash
 #
 # This script will download, build and install the
-# macchina.io Remote Manager SDK executables from
+# macchina.io REMOTE SDK executables from
 # <https://github.com/my-devices/sdk>.
 #
 
@@ -15,12 +15,12 @@ function unsupportedPlatform {
 echo ""
 echo "##"
 echo "##"
-echo "##  Welcome to the macchina.io Remote Manager Device Agent and Utilities Installer."
+echo "##  Welcome to the macchina.io REMOTE Device Agent and Client Utilities Installer."
 echo "##"
 echo "##"
 echo ""
 echo "This script will download, build and install the"
-echo "macchina.io Remote Manager device agent (WebTunnelAgent) and utility"
+echo "macchina.io REMOTE device agent (WebTunnelAgent) and client utility"
 echo "(WebTunnelClient, WebTunnelSSH, WebTunnelRDP, WebTunnelVNC) executables from"
 echo "<https://github.com/my-devices/sdk>."
 echo ""
@@ -134,4 +134,4 @@ rm -rf $builddir
 
 echo ""
 echo "Completed."
-echo "Thank you for installing the macchina.io Remote Manager Device Agent and Utilities."
+echo "Thank you for installing the macchina.io REMOTE Device Agent and Client Utilities."

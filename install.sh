@@ -19,10 +19,10 @@ echo "##  Welcome to the macchina.io REMOTE Device Agent and Client Utilities In
 echo "##"
 echo "##"
 echo ""
-echo "This script will download, build and install the"
-echo "macchina.io REMOTE device agent (WebTunnelAgent) and client utility"
-echo "(WebTunnelClient, WebTunnelSSH, WebTunnelRDP, WebTunnelVNC) executables from"
-echo "<https://github.com/my-devices/sdk>."
+echo "This script will download, build and install the macchina.io REMOTE device agent"
+echo "(WebTunnelAgent) and client command-line tools (WebTunnelClient, WebTunnelSSH,"
+echo "WebTunnelSCP, WebTunnelSFTP, WebTunnelRDP, WebTunnelVNC)"
+echo "from <https://github.com/my-devices/sdk>."
 echo ""
 
 os=`uname`
@@ -32,7 +32,7 @@ installdir=/usr/local/bin
 CMAKE=cmake
 
 if [ "$os" = "Darwin" ] ; then
-	cmakeOptions="-DOPENSSL_ROOT_DIR=/usr/local/opt/openssl -DOPENSSL_USE_STATIC_LIBS=TRUE"
+	cmakeOptions="-DOPENSSL_ROOT_DIR=/usr/local/opt/openssl@1.1 -DOPENSSL_USE_STATIC_LIBS=TRUE"
 fi
 
 curlpath=`which curl`
@@ -60,7 +60,7 @@ elif [ "$os" = Darwin ] ; then
   if [ -x /usr/local/bin/brew ] ; then
     if [ -x /usr/bin/clang ] ; then
       echo "Installing dependencies (cmake, openssl) using Homebrew."
-      brew install cmake openssl
+      brew install cmake openssl@1.1
     else
       echo "Please install the Xcode command-line tools before"
       echo "running this script."

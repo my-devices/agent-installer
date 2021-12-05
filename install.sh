@@ -20,8 +20,8 @@ echo "##"
 echo "##"
 echo ""
 echo "This script will download, build and install the macchina.io REMOTE device agent"
-echo "(WebTunnelAgent) and client command-line tools (WebTunnelClient, WebTunnelSSH,"
-echo "WebTunnelSCP, WebTunnelSFTP, WebTunnelRDP, WebTunnelVNC)"
+echo "(WebTunnelAgent) and client command-line tools (remote-client, remote-ssh,"
+echo "remote-scp, remote-sftp, remote-rdp, remote-vnc)"
 echo "from <https://github.com/my-devices/sdk>."
 echo ""
 
@@ -122,9 +122,14 @@ echo "Build completed."
 echo ""
 echo "Copying executables to $installdir..."
 echo "Please provide your sudo password when prompted."
-find ./bin -name 'WebTunnel*' -type f -perm -755 -exec strip {} \; -exec sudo cp {} $installdir \;
+find ./bin -name 'WebTunnelAgent' -type f -perm -755 -exec strip {} \; -exec sudo cp {} $installdir \;
 if [ $? -ne 0 ] ; then
 	echo "Failed to install agent executable. Exiting."
+	exit 6
+fi
+find ./bin -name 'remote-*' -type f -perm -755 -exec strip {} \; -exec sudo cp {} $installdir \;
+if [ $? -ne 0 ] ; then
+	echo "Failed to install client executables. Exiting."
 	exit 6
 fi
 

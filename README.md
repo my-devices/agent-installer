@@ -29,10 +29,12 @@ This repository contains a shell script that clones the
 repository and builds the macchina.io REMOTE
 [Device Agent (WebTunnelAgent)](https://github.com/my-devices/sdk/blob/master/WebTunnel/WebTunnelAgent/README.md)
 and Client Utilities
-[WebTunnelClient](https://github.com/my-devices/sdk/blob/master/WebTunnel/WebTunnelClient/README.md),
-[WebTunnelSSH](https://github.com/my-devices/sdk/blob/master/WebTunnel/WebTunnelSSH/README.md),
-[WebTunnelVNC](https://github.com/my-devices/sdk/blob/master/WebTunnel/WebTunnelVNC/README.md) and
-[WebTunnelRDP](https://github.com/my-devices/sdk/blob/master/WebTunnel/WebTunnelRDP/README.md).
+[`remote-client`](https://github.com/my-devices/sdk/blob/master/WebTunnel/WebTunnelClient/README.md),
+[`remote-ssh`](https://github.com/my-devices/sdk/blob/master/WebTunnel/WebTunnelSSH/README.md),
+[`remote-scp`](https://github.com/my-devices/sdk/blob/master/WebTunnel/WebTunnelSCP/README.md),
+[`remote-sftp`](https://github.com/my-devices/sdk/blob/master/WebTunnel/WebTunnelSFTP/README.md),
+[`remote-vnc`](https://github.com/my-devices/sdk/blob/master/WebTunnel/WebTunnelVNC/README.md) and
+[`remote-rdp`](https://github.com/my-devices/sdk/blob/master/WebTunnel/WebTunnelRDP/README.md).
 
 To run the script:
 

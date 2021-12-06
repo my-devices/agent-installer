@@ -3,11 +3,11 @@
 ## About macchina.io REMOTE
 
 [macchina.io REMOTE](https://macchina.io/remote) provides secure remote access to connected devices
-via HTTP or other TCP-based protocols and applications such as secure shell (SSH) or
-Virtual Network Computing (VNC). With macchina.io REMOTE, any network-connected device
-running the macchina.io REMOTE Device Agent software (*WebTunnelAgent*, contained in this SDK)
-can be securely accessed remotely over the internet from browsers, mobile apps, desktop,
-server or cloud applications.
+via HTTP or other TCP-based protocols and applications such as secure shell (SSH) or,
+file transfer (SFTP), or Virtual Network Computing (VNC).
+With macchina.io REMOTE, any network-connected device running the macchina.io REMOTE Device Agent
+software (`WebTunnelAgent`) can be securely accessed remotely over the internet from browsers,
+mobile apps, desktop, server or cloud applications.
 
 This even works if the device is behind a NAT router, firewall or proxy server.
 The device becomes just another host on the internet, addressable via its own URL and
@@ -46,4 +46,5 @@ The script should work on most Debian and RedHat-based Linux distributions inclu
 On macOS, [Homebrew](https://brew.sh/) must be installed.
 
 The script will install all required dependencies, then get the sources from GitHub and run the steps
-necessary to build and install the binaries in `/usr/local/bin/`.
+necessary to build and install the agent binary in `/usr/local/sbin` and the client binaries in
+`/usr/local/bin/`.

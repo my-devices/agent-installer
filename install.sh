@@ -28,7 +28,8 @@ echo ""
 os=`uname`
 repo="https://github.com/my-devices/sdk.git"
 builddir=/tmp/my-devices-sdk-build.$$
-installdir=/usr/local/bin
+agent_installdir=/usr/local/sbin
+client_installdir=/usr/local/bin
 CMAKE=cmake
 
 if [ "$os" = "Darwin" ] ; then
@@ -120,14 +121,17 @@ fi
 
 echo "Build completed."
 echo ""
-echo "Copying executables to $installdir..."
+echo "Copying device agent executable to $agent_installdir..."
+echo "Copying client executables to $client_installdir..."
 echo "Please provide your sudo password when prompted."
-find ./bin -name 'WebTunnelAgent' -type f -perm -755 -exec strip {} \; -exec sudo cp {} $installdir \;
+sudo install -d $agent_installdir
+find ./bin -name 'WebTunnelAgent' -type f -perm -755 -exec strip {} \; -exec sudo install -c {} $agent_installdir \;
 if [ $? -ne 0 ] ; then
 	echo "Failed to install agent executable. Exiting."
 	exit 6
 fi
-find ./bin -name 'remote-*' -type f -perm -755 -exec strip {} \; -exec sudo cp {} $installdir \;
+sudo install -d $client_installdir
+find ./bin -name 'remote-*' -type f -perm -755 -exec strip {} \; -exec sudo install -c {} $client_installdir \;
 if [ $? -ne 0 ] ; then
 	echo "Failed to install client executables. Exiting."
 	exit 6

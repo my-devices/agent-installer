@@ -44,7 +44,7 @@ fi
 
 if [ "$os" = "Linux" ] ; then
   if [ -x /usr/bin/apt-get ] ; then
-    cmd="sudo apt-get -y update && sudo apt-get -y install git g++ make cmake libssl-dev"
+    cmd="sudo apt-get -y update && sudo apt-get -y install git g++ make cmake libssl-dev libz-dev"
   elif [ -x /bin/yum ] ; then
     cmd="sudo yum install -y git gcc-c++ make cmake3 openssl-devel"
     CMAKE=cmake3
